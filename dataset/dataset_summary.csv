@@ -1,0 +1,4 @@
+split,class_id,class_name,num_objects,num_images
+train,0,class0,330,303
+val,0,class0,93,86
+test,0,class0,48,44
