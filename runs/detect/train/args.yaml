@@ -13,7 +13,7 @@ cache: false
 device: '0'
 workers: 8
 project: null
-name: train
+name: train10
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -103,4 +103,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: C:\Users\mcash\Documents\4º_GII\VC_P4\runs\detect\train
+save_dir: C:\Users\mcash\Documents\4º_GII\VC_P4_MCH\runs\detect\train10
