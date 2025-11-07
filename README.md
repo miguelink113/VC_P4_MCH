@@ -106,30 +106,27 @@ model = AutoModelForImageTextToText.from_pretrained("HuggingFaceTB/SmolVLM-Instr
 
 ## Comparativa de OCR
 
-Se pueden analizar tiempos de inferencia y precisión entre EasyOCR y SmolVLM usando los logs:
+### Comparación estadística de tiempo por imagen(mínimo, promedio, máximo)
 
-EASYOCR.txt
-
-SMOLVLM.txt
-
-Gráficas generadas con Matplotlib:
+Se pueden analizar tiempos de inferencia y precisión entre EasyOCR y SmolVLM usando los logs `EASYOCR.txt` y `SMOLVLM.txt`
 
 <img src="images/output.png" alt="Tiempos de inferencia por imagen" width="600"/>
 
-<img src="images/output2.png" alt="Comparación EASYOCR y SMOLVLM" width="600"/>
+<img src="images/output2.png" alt="Comparación tiempo EASYOCR y SMOLVLM" width="600"/>
 
-Comparación estadística de tiempo por imagen(mínimo, promedio, máximo)
+- EasyOCR: promedio=0.77ms, min=0.40ms, max=16.50ms
 
-EASYOCR: promedio=0.93ms, min=0.40ms, max=17.80ms
-SMOLVLM: promedio=0.66ms, min=0.40ms, max=22.40ms
+- SmolVLM: promedio=0.66ms, min=0.40ms, max=22.40ms
 
-## Notas
+### Comparación estadística en lectura de matrículas
 
-Ajusta los parámetros conf, iou, imgsz según tus necesidades y hardware.
+<img src="images/output3.png" alt="Comparación lecturas EASYOCR y SMOLVLM" width="600"/>
 
-Para vídeos largos, considera procesar por partes para evitar problemas de memoria.
+- EasyOCR no consiguió leer correctamente ninguna matrícula completa, aunque logró algunas detecciones parciales.
+- En cambio, SmolVLM obtuvo resultados notablemente mejores: logró lecturas parciales más precisas en muchas matrículas y, además, consiguió identificar varias de ellas de forma completa.
 
-SmolVLM requiere GPU y soporte para bfloat16 si se busca velocidad máxima.
+### Conclusión
+A pesar de que ambos modelos tardan casi lo mismo en procesar cada imagen, SmolVLM logra resultados mucho mejores. Mientras EasyOCR solo reconoce partes de las matrículas, SmolVLM consigue leer varias por completo, manteniendo además una buena velocidad. SmolVLM demuestra ser la opción más eficaz.
 
 ## Autor
 
