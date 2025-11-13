@@ -20,22 +20,25 @@ Modelos YOLO:
 
 `runs/detect/train/weights/best.pt` → Modelo entrenado para detección de matrículas.
 
+dataset: https://drive.google.com/file/d/10VFeoGYP6D9QiDtg-PM9o0pBY9xw2sED/view
+
 ## Preparación
 
 Comprobar GPU y CUDA:
 
+```python
 import torch
 print(torch.__version__)
 print(torch.cuda.is_available())
 print(torch.cuda.device_count())
 if torch.cuda.is_available():
     print(torch.cuda.get_device_name(0))
-
+```
 
 ### Entrenamiento del modelo de matrículas (opcional si ya tienes best.pt):
 
-from ultralytics import YOLO
 ```python
+from ultralytics import YOLO
 model = YOLO('yolo11n.pt')
 model.train(
     data='dataset/data.yaml',
